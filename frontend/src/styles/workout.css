@@ -1,0 +1,115 @@
+/* Reuses the same CSS variables already defined in goals.css */
+
+.workout-page {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 40px 20px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.workout-card {
+  width: 100%;
+  max-width: 800px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.workout-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.workout-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--primary);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.workout-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.workout-item {
+  background: var(--goal-bg);
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.workout-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.workout-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.workout-date {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.workout-goal-badge {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--primary);
+  border-radius: 9999px;
+  padding: 2px 10px;
+  font-size: 0.78rem;
+}
+
+.workout-notes {
+  color: var(--subtext);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.log-workout-btn {
+  background: var(--primary);
+  color: white;
+  padding: 10px 18px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.log-workout-btn:hover,
+.log-workout-btn:active {
+  background: var(--primary-hover);
+}
+
+.success-message {
+  color: #22c55e;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .workout-card {
+    padding: 16px;
+  }
+  .workout-title {
+    font-size: 1.4rem;
+  }
+}

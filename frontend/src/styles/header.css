@@ -1,0 +1,98 @@
+/* ===== COLOR VARIABLES ===== */
+:root {
+  --color-bg: #1f2933;
+  --color-text: #ffffff;
+  --color-text-muted: #e5e7eb;
+  --color-accent: #60a5fa;
+
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.25s ease;
+}
+
+/* ===== HEADER CONTAINER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px 32px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ===== LOGO ===== */
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ===== NAV CONTAINER ===== */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ===== LINKS ===== */
+.link {
+  position: relative;
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  font-weight: 500;
+
+  transition: color var(--transition-fast);
+}
+
+/* Hover effect */
+.link:hover {
+  color: var(--color-accent);
+}
+
+/* ===== ACTIVE LINK ===== */
+.link.active {
+  color: var(--color-accent);
+}
+
+/* underline animation */
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-accent);
+
+  transition: width var(--transition-medium);
+}
+
+.link:hover::after,
+.link.active::after {
+  width: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav {
+    gap: 16px;
+  }
+
+  .link {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,52 @@
+/* ===== VARIABLES ===== */
+:root {
+  --color-bg: #111827;
+  --color-card: #1f2933;
+  --color-text: #ffffff;
+  --color-text-muted: #9ca3af;
+  --color-accent: #60a5fa;
+
+  --spacing-lg: 40px;
+  --spacing-md: 20px;
+
+  --radius: 10px;
+}
+
+/* ===== PAGE CONTAINER ===== */
+.home {
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ===== CARD / CONTENT BOX ===== */
+.home-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+
+  background-color: var(--color-card);
+  border-radius: var(--radius);
+
+  text-align: center;
+}
+
+/* ===== TITLE ===== */
+.home-title {
+  font-size: 28px;
+  margin-bottom: var(--spacing-md);
+}
+
+/* ===== MESSAGE ===== */
+.home-message {
+  font-size: 18px;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+/* ===== SUBTEXT ===== */
+.home-subtext {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,256 @@
+/* ===== VARIABLES ===== */
+:root {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --goal-bg: #111827;
+  --neutral: #64748b;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --text: #e2e8f0;
+  --subtext: #94a3b8;
+  --radius: 12px;
+  --transition: 0.2s ease;
+}
+
+/* ===== GOALS  ===== */
+.view-goals {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 40px 20px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.goals-card {
+  width: 100%;
+  max-width: 1000px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.goals-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.goals-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--primary);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.goals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.goal-item {
+  background: var(--goal-bg);
+  padding: 16px;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.goal-item:hover, .goal-item:active{
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.goal-item h2 {
+  margin-bottom: 8px;
+}
+
+.goal-item p {
+  color: var(--subtext);
+  margin-bottom: 16px;
+}
+
+.goal-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.edit-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.edit-btn:hover, .edit-btn:active {
+  background: var(--primary-hover);
+}
+
+.delete-btn {
+  background: var(--danger);
+  color: white;
+}
+
+.delete-btn:hover, .delete-btn:active{
+  background: var(--danger-hover);
+}
+
+.add-goal-btn {
+  margin-top: 20px;
+  background: var(--primary);
+  color: white;
+  padding: 10px 18px;
+  font-weight: 500;
+}
+
+.add-goal-btn:hover , .add-goal-btn:active{
+  background: var(--primary-hover);
+}
+
+.close-btn {
+  margin-top: 20px;
+  background: var(--danger);
+  color: white;
+  padding: 10px 18px;
+  font-weight: 500;
+}
+
+.close-btn:hover, .close-btn:active{
+  background: var(--danger-hover);
+}
+
+.submit-btn {
+  background: var(--neutral);
+  color: white;
+  padding: 10px 18px;
+  font-weight: 500;
+}
+
+.submit-btn:hover,
+.submit-btn:active {
+  background: var(--primary-hover);
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: fadeIn 0.2s ease;
+}
+
+.add-goal-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--subtext);
+  margin-bottom: 4px;
+  transition: color var(--transition);
+}
+
+.form-title {
+  color: var(--text);
+}
+
+.form-input,
+.form-text {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--subtext);
+  background: var(--goal-bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  transition: 
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.error-message {
+  color: var(--danger);
+}
+
+.form-input:hover,
+.form-text:hover {
+  border-color: var(--primary);
+}
+
+.form-input:focus,
+.form-text:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.form-group:focus-within .form-label {
+  color: var(--primary);
+}
+
+.form-input:active,
+.form-text:active {
+  transform: scale(0.99);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 500px) {
+  .goals-card {
+    padding: 16px;
+  }
+
+  .goals-title {
+    font-size: 1.4rem;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
